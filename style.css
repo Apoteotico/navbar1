@@ -1,0 +1,152 @@
+/* Importa la fuente Poppins desde Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Reset básico y configuración global */
+* {
+  margin: 0;               /* Quita márgenes por defecto */
+  padding: 0;              /* Quita padding por defecto */
+  box-sizing: border-box;  /* Incluye padding y border en el ancho total del elemento */
+  font-family: "Poppins", sans-serif; /* Fuente por defecto */
+}
+
+/* Variables CSS */
+:root {
+  --clr: #222327; /* Color principal oscuro */
+}
+
+/* Estilos del body */
+body {
+  display: flex;                  /* Usamos flex para centrar el contenido */
+  justify-content: center;        /* Centra horizontalmente */
+  align-items: center;            /* Centra verticalmente */
+  min-height: 100vh;              /* Ocupa toda la altura de la ventana */
+  background: var(--clr);         /* Fondo oscuro */
+}
+
+/* Contenedor de navegación */
+.navigation {
+  width: 400px;
+  height: 70px;
+  background: #fff;
+  position: relative;             /* Para posicionar elementos absolutos dentro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;            /* Bordes redondeados */
+}
+
+/* Lista de elementos de navegación */
+.navigation ul {
+  display: flex;                  /* Mostrar elementos en fila */
+  width: 350px;                   /* Ancho total de la lista */
+}
+
+/* Cada elemento de la lista */
+.navigation ul li {
+  position: relative;             /* Para posicionar texto y efecto activo */
+  list-style: none;               /* Quita viñetas */
+  width: 70px;
+  height: 70px;
+  z-index: 1;                     /* Para estar encima de otros elementos */
+}
+
+/* Links dentro de los elementos */
+.navigation ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;         /* Ícono arriba, texto abajo */
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Íconos dentro de los links */
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 75px;              /* Centrado vertical */
+  font-size: 1.5rem;              /* Tamaño del ícono */
+  text-align: center;
+  transition: 0.5s;               /* Animación suave al activar */
+  color: var(--clr);
+}
+
+/* Mueve el ícono hacia arriba cuando el li está activo */
+.navigation ul li.active a .icon {
+  transform: translateY(-32px);
+}
+
+/* Texto dentro de los links */
+.navigation ul li a .text {
+  position: absolute;
+  color: var(--clr);
+  font-weight: 400;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;               /* Animación suave */
+  opacity: 0;                     /* Invisible por defecto */
+  transform: translateY(20px);    /* Posición inicial abajo */
+}
+
+/* Muestra y mueve el texto cuando el li está activo */
+.navigation ul li.active a .text {
+  transform: translateY(10px);
+  opacity: 1;
+}
+
+/* Indicador circular que se mueve bajo el li activo */
+.indicator {
+  position: absolute;
+  top: -50%;                      /* Centrado vertical respecto al nav */
+  width: 70px;
+  height: 70px;
+  background: #29fd53;            /* Color verde brillante */
+  border-radius: 50%;             /* Círculo */
+  border: 6px solid var(--clr);   /* Borde oscuro */
+  transition: 0.5s;               /* Animación suave */
+}
+
+/* Decoración izquierda del indicador */
+.indicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 1px -10px 0 0 var(--clr); /* Sombra para efecto de “conexión” */
+}
+
+/* Decoración derecha del indicador */
+.indicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-left-radius: 20px;
+  box-shadow: -1px -10px 0 0 var(--clr);
+}
+
+/* Movimiento del indicador según el li activo */
+.navigation ul li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(70px * 0));
+}
+.navigation ul li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(70px * 1));
+}
+.navigation ul li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(70px * 2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(70px * 3));
+}
+.navigation ul li:nth-child(5).active ~ .indicator {
+  transform: translateX(calc(70px * 4));
+}
