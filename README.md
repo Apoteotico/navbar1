@@ -1,7 +1,5 @@
 # Magic Navigation Menu Indicator
 
-![Navbar Demo](https://media.discordapp.net/attachments/1214753642683437166/1418083800692559923/image.png?ex=68ccd4f4&is=68cb8374&hm=18302ea8138650c7856d45c72431096a436bd09fd7fdb337b05901e75c5c2679&=&format=webp&quality=lossless)
-
 ## Descripción
 
 Este proyecto es un **menú de navegación interactivo** con un indicador animado que se mueve debajo del elemento activo. Al hacer clic en un ícono, el indicador se desplaza suavemente y muestra el texto correspondiente al ítem seleccionado.  
